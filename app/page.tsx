@@ -1,103 +1,78 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import {
+  Users,
+  DollarSign,
+  MessageCircle,
+  Zap,
+  Heart,
+  Video,
+  FileText,
+} from "lucide-react";
+import { useTranslations } from "@/hooks/use-translations";
+import Footer from "@/components/landing-components/footer";
+import Cta from "@/components/landing-components/cta";
+import Features from "@/components/landing-components/features";
+import Benefits from "../components/landing-components/benefits";
+import Hero from "../components/landing-components/hero";
+import { Testimonial } from "@/components/landing-components/testimonial";
+
+export default function HomePage() {
+  const { t } = useTranslations();
+
+  const benefits = [
+    {
+      icon: <Zap className="h-8 w-8" />,
+      title: t("home.benefits.algorithm.title"),
+      description: t("home.benefits.algorithm.desc"),
+      gradient: "from-yellow-400 to-orange-500",
+    },
+    {
+      icon: <Heart className="h-8 w-8" />,
+      title: t("home.benefits.content.title"),
+      description: t("home.benefits.content.desc"),
+      gradient: "from-pink-400 to-red-500",
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: t("home.benefits.connections.title"),
+      description: t("home.benefits.connections.desc"),
+      gradient: "from-blue-400 to-purple-500",
+    },
+    {
+      icon: <DollarSign className="h-8 w-8" />,
+      title: t("home.benefits.monetize.title"),
+      description: t("home.benefits.monetize.desc"),
+      gradient: "from-green-400 to-emerald-500",
+    },
+  ];
+
+  const features = [
+    {
+      icon: <FileText className="h-6 w-6 text-red-500" />,
+      title: "Comprehensive PDF Guide",
+      description: "300+ pages of actionable strategies and insider secrets",
+    },
+    {
+      icon: <Video className="h-6 w-6 text-blue-500" />,
+      title: "7 Video Masterclasses",
+      description: "Step-by-step video tutorials with real examples",
+    },
+    {
+      icon: <MessageCircle className="h-6 w-6 text-purple-500" />,
+      title: "Personal Q&A Session",
+      description: "15-minute one-on-one strategy call with Salman (Premium)",
+    },
+  ];
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      <Hero />
+      <Benefits benefits={benefits} />
+      <Features features={features} />
+      {/* <Cta /> */}
+      <Testimonial />
+      <Footer />
     </div>
   );
 }
